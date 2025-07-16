@@ -1,0 +1,33 @@
+name: "Python Web App CI Pipeline"
+
+on:
+  push:
+    branches:
+        - main
+        - master
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      
+      - name: "Clone Repo"
+        uses: actions/checkout@v4
+
+      - name: "Setup python envrionment"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.8"
+        
+      - name: "Install Dependencies"
+        run: |
+          python -m venv myenv
+          myenv\Scripts\activate
+          pip install -r requirements.txt
+          pip uninstall werkzeug
+          pip install werkzeug==2.0.3
+    
+    
+
+          
