@@ -27,6 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: "Check installed packages"
+        run: |
+          source myenv/bin/activate
+          pip freeze
+
       - name: "Lint test"
         run: |
           source myenv/bin/activate
