@@ -25,8 +25,17 @@ jobs:
           python -m venv myenv
           myenv\Scripts\activate
           pip install -r requirements.txt
-          pip uninstall werkzeug
-          pip install werkzeug==2.0.3
+
+      - name: "Lint test"
+        run: |
+          myenv\Scripts\activate
+          pylint app.py
+
+      - name: "Run test"
+        run: |
+          myenv\Scripts\activate
+          pytest
+
     
     
 
