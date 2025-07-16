@@ -40,7 +40,7 @@ jobs:
       - name: "Run test"
         run: |
           source myenv/bin/activate
-          pytest
+          pytest -v
 
     
     
